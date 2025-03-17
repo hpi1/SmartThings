@@ -1,0 +1,24 @@
+name: rtsp-stream-uninit.v1
+components:
+  - id: main
+    label: RTSP Stream
+    capabilities:
+      - id: refresh
+        version: 1
+      - id: healthCheck
+        version: 1
+      - id: videoStream
+        version: 1
+metadata:
+  ocfDeviceType: oic.d.camera
+preferences:
+  - title: "Stream URL"
+    name: deviceurl
+    description: "RTSP stream URL of device"
+    required: true
+    preferenceType: string
+    definition:
+      stringType: text
+      minLength: 8
+      maxLength: 128
+      default: "rtsp://user:password@192.168.n.n/videoStream"

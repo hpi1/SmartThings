@@ -1,0 +1,37 @@
+name: rtsp-stream.v1
+components:
+  - id: main
+    label: RTSP Stream
+    capabilities:
+      - id: refresh
+        version: 1
+      - id: healthCheck
+        version: 1
+      - id: videoStream
+        version: 1
+      - id: motionSensor
+        version: 1
+deviceconfig:
+  dpinfo:
+    - os: ios
+      dpUri: storyboard://ArloController/ArloViewController
+    - os: android
+      dpUri: plugin://com.samsung.android.plugin.camera
+    - os: web
+      dpUri: wwst://com.samsung.one.plugin.stplugin
+metadata:
+  ocfDeviceType: oic.d.camera
+  vid: SmartThings-smartthings-c2c-ring-camera
+  #vid: c1ca6938-e152-4a21-a349-d89df268f126
+  mnmn: SmartThings
+preferences:
+  - title: "Stream URL"
+    name: deviceurl
+    description: "RTSP stream URL of device"
+    required: true
+    preferenceType: string
+    definition:
+      stringType: text
+      minLength: 8
+      maxLength: 128
+      default: "rtsp://user:password@192.168.n.n/videoStream"

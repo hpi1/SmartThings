@@ -1,0 +1,5 @@
+name: 'RTSP Stream'
+packageKey: 'RTSP-Stream'
+permissions:
+  lan: {}
+  discovery: {}
