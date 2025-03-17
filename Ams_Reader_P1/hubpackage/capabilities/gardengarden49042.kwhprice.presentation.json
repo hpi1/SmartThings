@@ -1,0 +1,37 @@
+{
+    "dashboard": {
+        "states": [
+            {
+                "label": "{{price.value}} {{price.unit}}"
+            }
+        ],
+        "actions": [],
+        "panelItems": []
+    },
+    "detailView": [
+        {
+            "label": "Price",
+            "displayType": "state",
+            "state": {
+                "label": "{{price.value}} {{price.unit}}",
+                "unit": "price.unit"
+            }
+        }
+    ],
+    "automation": {
+        "conditions": [
+            {
+                "label": "Price",
+                "displayType": "numberField",
+                "numberField": {
+                    "value": "price.value",
+                    "valueType": "number",
+                    "unit": "price.unit"
+                }
+            }
+        ],
+        "actions": []
+    },
+    "id": "gardengarden49042.kwhprice",
+    "version": 1
+}

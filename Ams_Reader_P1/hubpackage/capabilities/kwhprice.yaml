@@ -1,0 +1,22 @@
+id: gardengarden49042.kwhprice
+version: 1
+status: proposed
+name: kwhprice
+ephemeral: false
+attributes:
+  price:
+    schema:
+      type: object
+      properties:
+        value:
+          type: number
+        unit:
+          type: string
+          enum:
+            - c/kWh
+          default: c/kWh
+      additionalProperties: false
+      required:
+        - value
+    enumCommands: []
+commands: {}

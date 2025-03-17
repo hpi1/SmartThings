@@ -1,0 +1,5 @@
+name: "LAN AMS Reader P1"
+packageKey: "LAN-AmsReader-P1"
+permissions:
+  lan: {}
+  discovery: {}
