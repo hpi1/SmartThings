@@ -38,15 +38,16 @@ function command_handler.refresh(_, device)
       if data.hm == 2 then han_status = 'Delayed data' end
       device:emit_event(cap_status.status(han_status))
 
-      device:emit_event(caps.powerMeter.power(data.i), { visibility = { displayed = false } })
+      -- data.i = import, data.e = export, data.w = import - export
+      device:emit_event(caps.powerMeter.power(data.w), { visibility = { displayed = false } })
       device:emit_event(caps.energyMeter.energy({value = data.ic, unit = "kWh" }, { visibility = { displayed = false } }))
 
       device:emit_component_event(device.profile.components.phase1,
-          caps.powerMeter.power(data.l1.p, { visibility = { displayed = false } }));
+          caps.powerMeter.power(data.l1.p - data.l1.q, { visibility = { displayed = false } }));
       device:emit_component_event(device.profile.components.phase2,
-          caps.powerMeter.power(data.l2.p, { visibility = { displayed = false } }));
+          caps.powerMeter.power(data.l2.p - data.l1.q, { visibility = { displayed = false } }));
       device:emit_component_event(device.profile.components.phase3,
-          caps.powerMeter.power(data.l3.p, { visibility = { displayed = false } }));
+          caps.powerMeter.power(data.l3.p - data.l1.q, { visibility = { displayed = false } }));
       device:emit_component_event(device.profile.components.phase1,
           caps.voltageMeasurement.voltage(data.l1.u, { visibility = { displayed = false } }));
       device:emit_component_event(device.profile.components.phase2,
