@@ -1,0 +1,41 @@
+name: OpenBkPower.v1
+components:
+  - id: main
+    no_label: Switch
+    capabilities:
+      - id: switch
+        version: 1
+      - id: powerMeter
+        version: 1
+      - id: energyMeter
+        version: 1
+      - id: voltageMeasurement
+        version: 1
+      - id: currentMeasurement
+        version: 1
+      - id: partyvoice23922.onvifstatus
+        label: Meter status
+        version: 1
+      - id: powerConsumptionReport
+        version: 1
+      - id: refresh
+        version: 1
+    categories:
+      - name: Others
+  - id: info
+    label: Utility
+    capabilities:
+      - id: partyvoice23922.refresh
+        version: 1
+metadata:
+  ocfDeviceType: x.com.st.d.energymeter
+preferences:
+  - title: "Refresh Frequency"
+    name: refreshfreq
+    description: "Number of seconds"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 1
+      maximum: 86400
+      default: 30
