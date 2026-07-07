@@ -1,0 +1,49 @@
+name: AirPurifier.v1
+components:
+  - id: main
+    label: Fan
+    capabilities:
+      - id: switch
+        version: 1
+      - id: switchLevel
+        label: Fan Speed
+        version: 1
+        config:
+          values:
+            - key: "level.value"
+              range: [0, 100]
+      - id: refresh
+        version: 1
+      - id: healthCheck
+        version: 1
+    categories:
+      - name: Fan
+  - id: sensor
+    label: Sensor
+    capabilities:
+      - id: fineDustSensor
+        version: 1
+      - id: fineDustHealthConcern
+        version: 1
+    categories:
+      - name: AirQualityDetector
+  - id: info
+    label: Utility
+    capabilities:
+      - id: partyvoice23922.onvifstatus
+        label: Status
+        version: 1
+      - id: partyvoice23922.refresh
+        version: 1
+metadata:
+  ocfDeviceType: x.com.st.d.energymeter
+preferences:
+  - title: "Refresh Frequency"
+    name: refreshfreq
+    description: "Number of seconds"
+    required: true
+    preferenceType: number
+    definition:
+      minimum: 1
+      maximum: 86400
+      default: 60

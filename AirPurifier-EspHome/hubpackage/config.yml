@@ -1,0 +1,5 @@
+name: "LAN Air Purifier EspHome"
+packageKey: "LAN-AirPurifier-EspHome"
+permissions:
+  lan: {}
+  discovery: {}
