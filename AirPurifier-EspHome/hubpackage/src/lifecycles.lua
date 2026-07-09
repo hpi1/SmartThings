@@ -1,5 +1,6 @@
 local commands = require('commands')
 local log = require('log')
+local cosock = require("cosock")
 
 local lifecycle_handler = {}
 
@@ -9,6 +10,10 @@ local function setup_refresh(device)
     function ()
       return commands.refresh(nil, device)
     end)
+
+  cosock.spawn(function()
+    commands.monitor_device_connection(device)
+  end, "persistent_tcp_socket_task")
 end
 
 function lifecycle_handler.init(driver, device)

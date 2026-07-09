@@ -28,11 +28,20 @@ components:
     categories:
       - name: AirQualityDetector
   - id: info
-    label: Utility
+    label: Connection
     capabilities:
       - id: partyvoice23922.onvifstatus
         label: Status
         version: 1
+  - id: filter
+    label: Device Health
+    capabilities:
+      - id: partyvoice23922.onvifstatus
+        label: Device Health
+        version: 1
+  - id: util
+    label: Utility
+    capabilities:
       - id: partyvoice23922.refresh
         version: 1
 metadata:

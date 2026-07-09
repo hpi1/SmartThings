@@ -6,6 +6,8 @@ Supported features:
  - switch
  - fan speed
  - PM2.5 sensor
+ - Filter status
+ - Device health
 
 Add device from App ("Add Device" -> "Search Nearby Devices").
 
